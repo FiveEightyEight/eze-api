@@ -1,9 +1,10 @@
 const app = require('express')();
 const PORT = process.env.PORT || 5767;
 
+
 app.use((req, res) => {
     res.json({
-        message: 'Homebase',
+        message: process.env,
     }).status(200);
 });
 

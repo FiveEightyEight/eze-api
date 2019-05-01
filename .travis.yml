@@ -10,6 +10,11 @@ before_script:
 # script:
   # - npm run write-coveralls
   # - npm test
+env:
+  global:
+  - FOO=foo BAR=bar
+  matrix:
+    - STEP=step
 deploy:
   provider: heroku
   api_key: $HEROKU_KEY
