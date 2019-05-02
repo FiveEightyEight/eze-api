@@ -8,10 +8,11 @@ RestaurantRouter.get('/location/', (req, res) => {
     const {
         address
     } = req.query;
+    // console.log(address)
     getByAddress(address)
-        .then(parsedData => {
+        .then(( data ) => {
             res.json({
-                restaurants: parsedData
+                restaurants: data
             }).status(200);
         })
         .catch(_ => {
