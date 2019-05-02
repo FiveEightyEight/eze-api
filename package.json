@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "codecov": "^1.0.1",
-    "cors": "^2.8.5",
     "jest": "^24.7.1",
     "nodemon": "^1.19.0"
   }
