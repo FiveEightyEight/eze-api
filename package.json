@@ -6,7 +6,6 @@
   "scripts": {
     "start:local": "$(npm bin)/nodemon index.js &",
     "test": "$(npm bin)/jest --coverage",
-    "standard": "*",
     "start": "node index.js"
   },
   "keywords": [],
