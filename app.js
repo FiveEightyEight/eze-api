@@ -11,6 +11,22 @@ app.use(bodyParser.json());
 
 app.use('/restaurants', RestaurantRouter);
 
+const auth = (req, res, next) => {
+    const { tkn, Origin } = req.headers;
+    if(tkn === process.env.tkn || Origin === process.env.Origin){
+        next();
+        return;
+    } else {
+        res.status(400);
+    };
+};
+
+app.get('/fb', auth, (req, res) => {
+    res.json({
+        fb: process.env.fb 
+    }).status(200)
+});
+
 app.use((req, res) => {
     res.json({
         message: "Let's Eat!",
