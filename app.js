@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use('/restaurants', RestaurantRouter);
 
 const auth = (req, res, next) => {
-    const { tkn, Origin } = req.headers;
-    if(tkn === process.env.tkn || Origin === process.env.Origin){
+    const { tkn } = req.headers;
+    if(tkn === process.env.tkn){
         next();
         return;
     } else {
