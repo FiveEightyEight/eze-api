@@ -1,4 +1,5 @@
 const axios = require('axios');
+const key = process.env.YELP_KEY;
 
 
 const parseYelpData = ({
@@ -45,7 +46,7 @@ const getByCoord = (lat, lon) => {
             method: 'GET',
             url: `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?term=fastfood&latitude=${lat}&longitude=${lon}&limit=50`,
             headers: {
-                Authorization: 'BEARER 7qhXzmc-qBs_nON-yV8qSFRDQOJkB9e5UYMVuyik8ySqoilGOlVAvGE7F31YxftS2nEMUkugJUlS7PyM-D0nnUuaxq3BOKUVH0aHZipZHx48RP-X31AVCYz1bX7EXHYx',
+                Authorization: `BEARER ${key}`,
                 Origin: 'https://eze-api.herokuapp.com/'
             }
         })
@@ -62,7 +63,7 @@ const getByAddress = (address) => {
             method: 'GET',
             url: `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?term=fastfood&location=${address}&limit=50`,
             headers: {
-                Authorization: 'BEARER 7qhXzmc-qBs_nON-yV8qSFRDQOJkB9e5UYMVuyik8ySqoilGOlVAvGE7F31YxftS2nEMUkugJUlS7PyM-D0nnUuaxq3BOKUVH0aHZipZHx48RP-X31AVCYz1bX7EXHYx',
+                Authorization: `BEARER ${key}`,
                 Origin: 'https://eze-api.herokuapp.com/'
             }
         })
