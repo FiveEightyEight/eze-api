@@ -45,38 +45,34 @@ const getByCoord = (lat, lon) => {
             method: 'GET',
             url: `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?term=fastfood&latitude=${lat}&longitude=${lon}&limit=50`,
             headers: {
-                Authorization: 'BEARER 7qhXzmc-qBs_nON-yV8qSFRDQOJkB9e5UYMVuyik8ySqoilGOlVAvGE7F31YxftS2nEMUkugJUlS7PyM-D0nnUuaxq3BOKUVH0aHZipZHx48RP-X31AVCYz1bX7EXHYx'
+                Authorization: 'BEARER 7qhXzmc-qBs_nON-yV8qSFRDQOJkB9e5UYMVuyik8ySqoilGOlVAvGE7F31YxftS2nEMUkugJUlS7PyM-D0nnUuaxq3BOKUVH0aHZipZHx48RP-X31AVCYz1bX7EXHYx',
+                Origin: 'https://eze-api.herokuapp.com/'
             }
         })
         .then(res => {
             return parseYelpData(res.data)
-        });
+        })
+        .catch( err => {
+            return err;
+        });;
 };
-
-// .then(restaurants => {
-//     this.setState({ restaurants }, () => {
-//     localStorage.setItem('ee_restList', JSON.stringify(restaurants));
-//     this.generateRandomRestaurantList();
-// })})
 
 const getByAddress = (address) => {
     return axios({
             method: 'GET',
             url: `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?term=fastfood&location=${address}&limit=50`,
             headers: {
-                Authorization: 'BEARER 7qhXzmc-qBs_nON-yV8qSFRDQOJkB9e5UYMVuyik8ySqoilGOlVAvGE7F31YxftS2nEMUkugJUlS7PyM-D0nnUuaxq3BOKUVH0aHZipZHx48RP-X31AVCYz1bX7EXHYx'
+                Authorization: 'BEARER 7qhXzmc-qBs_nON-yV8qSFRDQOJkB9e5UYMVuyik8ySqoilGOlVAvGE7F31YxftS2nEMUkugJUlS7PyM-D0nnUuaxq3BOKUVH0aHZipZHx48RP-X31AVCYz1bX7EXHYx',
+                Origin: 'https://eze-api.herokuapp.com/'
             }
         })
         .then(res => {
             return parseYelpData(res.data)
+        })
+        .catch( err => {
+            return err;
         });
 };
-// .then(restaurants => this.setState({
-//     restaurants
-// }, () => {
-//     localStorage.setItem('ee_restList', JSON.stringify(restaurants));
-//     this.generateRandomRestaurantList();
-// }));
 
 module.exports = {
     getByCoord,
